@@ -12,52 +12,115 @@
 
 <body>
   <main style="text-align: center;">
-    <h1>Comparador de Preços</h1>
-    <p>Insira a quantidade, peso ou volume dos produtos e seus respectivos preços abaixo para saber qual opção é a mais
-      vantajosa.</p>
-    <p>
-      Selecione o tipo:
-      <select id="amount-kind" class="product-prop">
-        <option value="qtd">Quantidade</option>
-        <option value="kgs">Peso (kg)</option>
-        <option value="grm">Peso (g)</option>
-        <option value="mil">Volume (mL)</option>
-        <option value="lit">Volume (L)</option>
-      </select>
-    </p>
-    <div id="option1" class="optionDiv">
-      <h2>Opção 1</h2>
+      <h1>Comparador de Preços</h1>
+      <p>Insira a quantidade, peso ou volume dos produtos e seus respectivos preços abaixo para saber qual opção é a
+        mais
+        vantajosa.</p>
       <p>
-        <span class="amountLabel">Quantidade: </span>
-        <input id="amount" class="product-prop" type="number" step="0.0001" min="0" />
-        Preço: R$
-        <input id="price" class="product-prop" type="number" step="0.01" min="0" />
-        <input class="ratio" type="hidden"/>
+        Selecione o tipo:
+        <select id="amount-kind">
+          <option value="unidades">Unidades</option>
+          <option value="peso">Peso (quilos, gramas)</option>
+          <option value="liquido">Líquido (litros, mililitros)</option>
+        </select>
+        <button id="cleanAll" type="button">Limpar Tudo</button>
       </p>
-      <p>Preço por <span class="amountKindText">unidade</span>: R$ <span id="pricePerUnit">0,00</span></p>
-    </div>
-    <div id="option2" class="optionDiv">
-      <h2>Opção 2</h2>
-      <p>
-        <span class="amountLabel">Quantidade: </span>
-        <input id="amount" class="product-prop" type="number" step="0.0001" min="0" />
-        Preço: R$
-        <input id="price" class="product-prop" type="number" step="0.01" min="0" />
-        <input class="ratio" type="hidden"/>
-      </p>
-      <p>Preço por <span class="amountKindText">unidade</span>: R$ <span id="pricePerUnit">0,00</span></p>
-    </div>
-    <div id="option3" class="optionDiv">
-      <h2>Opção 3</h2>
-      <p>
-        <span class="amountLabel">Quantidade: </span>
-        <input id="amount" class="product-prop" type="number" step="0.0001" min="0" />
-        Preço: R$
-        <input id="price" class="product-prop" type="number" step="0.01" min="0" />
-        <input class="ratio" type="hidden"/>
-      </p>
-      <p>Preço por <span class="amountKindText">unidade</span>: R$ <span id="pricePerUnit">0,00</span></p>
-    </div>
+      <div id="option1" class="optionDiv">
+        <h2>Opção 1</h2>
+        <p class="melhorOpcao" style="display: none; font-weight: bold;">Esta é a melhor opção!</p>
+        <p>
+          Preço: R$
+          <input id="price" class="product-prop numeric" type="number" step="0.01" min="0" />
+          &nbsp;
+          <span class="amountLabel">Quantidade: </span>
+          <input id="amount" class="product-prop numeric" type="number" step="0.0001" min="0" />
+          <span style="display: none;">
+            <input id="un1" class="qtdeDefault" type="radio" name="unidades1" value="un" checked />
+          </span>
+          <span class="peso-radio" style="display: none;">
+            <input id="kg1" class="product-prop kgDefault" type="radio" name="unidades1" value="kg" />
+            <label for="kg1">quilo(s)</label>
+            <input id="gr1" class="product-prop" type="radio" name="unidades1" value="gr" />
+            <label for="gr1">gramas</label>
+          </span>
+          <span class="liquido-radio" style="display: none;">
+            <input id="lt1" class="product-prop ltDefault" type="radio" name="unidades1" value="lt" />
+            <label for="lt1">litro(s)</label>
+            <input id="ml1" class="product-prop" type="radio" name="unidades1" value="ml" />
+            <label for="ml1">mililitros</label>
+          </span>
+          <input class="product-prop ratio" type="hidden" />
+        </p>
+        <p>
+          <button class="cleanThis">Limpar</button>
+        </p>
+        <p style="font-weight: bold;">Preço por <span class="amountKindText">unidade</span>: R$ <span
+            class="pricePerUnit">0,00</span></p>
+      </div>
+      <div id="option2" class="optionDiv">
+        <h2>Opção 2</h2>
+        <p class="melhorOpcao" style="display: none; font-weight: bold;">Esta é a melhor opção!</p>
+        <p>
+          Preço: R$
+          <input id="price" class="product-prop numeric" type="number" step="0.01" min="0" />
+          &nbsp;
+          <span class="amountLabel">Quantidade: </span>
+          <input id="amount" class="product-prop numeric" type="number" step="0.0001" min="0" />
+          <span style="display: none;">
+            <input id="un2" class="qtdeDefault" type="radio" name="unidades2" value="un" checked />
+          </span>
+          <span class="peso-radio" style="display: none;">
+            <input id="kg2" class="product-prop kgDefault" type="radio" name="unidades2" value="kg" />
+            <label for="kg2">quilo(s)</label>
+            <input id="gr2" class="product-prop" type="radio" name="unidades2" value="gr" />
+            <label for="gr2">gramas</label>
+          </span>
+          <span class="liquido-radio" style="display: none;">
+            <input id="lt2" class="product-prop ltDefault" type="radio" name="unidades2" value="lt" />
+            <label for="lt2">litro(s)</label>
+            <input id="ml2" class="product-prop" type="radio" name="unidades2" value="ml" />
+            <label for="ml2">mililitros</label>
+          </span>
+          <input class="product-prop ratio" type="hidden" />
+        </p>
+        <p>
+          <button class="cleanThis">Limpar</button>
+        </p>
+        <p style="font-weight: bold;">Preço por <span class="amountKindText">unidade</span>: R$ <span
+            class="pricePerUnit">0,00</span></p>
+      </div>
+      <div id="option3" class="optionDiv">
+        <h2>Opção 3</h2>
+        <p class="melhorOpcao" style="display: none; font-weight: bold;">Esta é a melhor opção!</p>
+        <p>
+          Preço: R$
+          <input id="price" class="product-prop numeric" type="number" step="0.01" min="0" />
+          &nbsp;
+          <span class="amountLabel">Quantidade: </span>
+          <input id="amount" class="product-prop numeric" type="number" step="0.0001" min="0" />
+          <span style="display: none;">
+            <input type="radio" class="qtdeDefault" name="unidades3" value="un" checked />
+          </span>
+          <span class="peso-radio" style="display: none;">
+            <input id="kg3" class="product-prop kgDefault" type="radio" name="unidades3" value="kg" />
+            <label for="kg3">quilo(s)</label>
+            <input id="gr3" class="product-prop" type="radio" name="unidades3" value="gr" />
+            <label for="gr3">gramas</label>
+          </span>
+          <span class="liquido-radio" style="display: none;">
+            <input id="lt3" class="product-prop ltDefault" type="radio" name="unidades3" value="lt" />
+            <label for="lt3">litro(s)</label>
+            <input id="ml3" class="product-prop" type="radio" name="unidades3" value="ml" />
+            <label for="ml3">mililitros</label>
+          </span>
+          <input class="product-prop ratio" type="hidden" />
+        </p>
+        <p>
+          <button class="cleanThis">Limpar</button>
+        </p>
+        <p style="font-weight: bold;">Preço por <span class="amountKindText">unidade</span>: R$ <span
+            class="pricePerUnit">0,00</span></p>
+      </div>
   </main>
 </body>
 
